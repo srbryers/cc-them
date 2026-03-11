@@ -1,13 +1,14 @@
 {
   "name": "cc-them",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Install tech thinker reasoning agents into Claude Code",
   "type": "module",
   "bin": {
-    "cc-them": "./scripts/cli.js"
+    "cc-them": "./dist/scripts/cli.js"
   },
   "scripts": {
     "build": "tsc -p scripts/tsconfig.json && tsc -p mcp/tsconfig.json",
+    "prepublishOnly": "npm run build",
     "validate": "node scripts/validate.js",
     "validate:all": "node scripts/validate.js",
     "dev:mcp": "tsx mcp/src/index.ts"
@@ -31,7 +32,7 @@
     "sub-agents"
   ],
   "files": [
-    "scripts/cli.js",
+    "dist/",
     "scripts/validate.js",
     "profiles/",
     "schema/",

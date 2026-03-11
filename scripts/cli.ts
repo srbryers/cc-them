@@ -11,7 +11,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PROFILES_DIR = join(__dirname, "../profiles");
+const PROFILES_DIR = join(__dirname, "../../profiles");
 
 const [, , command, ...slugs] = process.argv;
 
