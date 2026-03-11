@@ -1,6 +1,6 @@
 {
   "name": "cc-them",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Install tech thinker reasoning agents into Claude Code",
   "type": "module",
   "bin": {
