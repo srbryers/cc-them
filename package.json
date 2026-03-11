@@ -1,0 +1,41 @@
+{
+  "name": "cc-them",
+  "version": "0.1.0",
+  "description": "Install tech thinker reasoning agents into Claude Code",
+  "type": "module",
+  "bin": {
+    "cc-them": "./scripts/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p scripts/tsconfig.json && tsc -p mcp/tsconfig.json",
+    "validate": "node scripts/validate.js",
+    "validate:all": "node scripts/validate.js",
+    "dev:mcp": "tsx mcp/src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "gray-matter": "^4.0.3",
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "mcp",
+    "ai-agents",
+    "sub-agents"
+  ],
+  "files": [
+    "scripts/cli.js",
+    "scripts/validate.js",
+    "profiles/",
+    "schema/",
+    "mcp/"
+  ],
+  "license": "MIT"
+}
