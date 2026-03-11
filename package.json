@@ -38,5 +38,9 @@
     "schema/",
     "mcp/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srbryers/cc-them"
+  },
   "license": "MIT"
 }
