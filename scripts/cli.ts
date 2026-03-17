@@ -199,7 +199,8 @@ switch (command) {
       process.exit(1);
     }
     rest.forEach(installPersona);
-    console.log("\nDone. Restart Claude Code to pick up new agents.\n");
+    console.log("\n  Next step: Start a new Claude Code session to activate.");
+    console.log(`  Then type: Use ${rest[0]} to review [paste your code here]\n`);
     break;
 
   default:

@@ -1,7 +1,7 @@
 {
   "name": "cc-them",
   "version": "0.2.0",
-  "description": "Code review through the lens of Hickey, Torvalds, Carmack — sourced reasoning agents for Claude Code",
+  "description": "Sourced reasoning agents for Claude Code — expert pushback on code, architecture, and strategy, grounded in public works",
   "type": "module",
   "bin": {
     "cc-them": "./dist/scripts/cli.js"
