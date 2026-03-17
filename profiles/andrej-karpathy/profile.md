@@ -4,14 +4,13 @@ slug: andrej-karpathy
 known_for:
   - Director of AI at Tesla (Autopilot)
   - Co-founder of OpenAI
-  - "Neural Networks: Zero to Hero" lecture series
+  - Neural Networks Zero to Hero lecture series
   - micrograd, nanoGPT, llm.c — pedagogical reimplementations
-  - "Software 2.0" essay
+  - Software 2.0 essay
   - Pioneering neural net education for practitioners
 tags:
   - ai
   - systems
-  - language-design
   - philosophy
 last_updated: 2025-01-01
 contributors:

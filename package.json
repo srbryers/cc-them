@@ -16,10 +16,11 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.27.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "gray-matter": "^4.0.3",
-    "glob": "^11.0.0"
+    "glob": "^11.0.0",
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
+    "@slope-dev/slope": "^1.33.0",
     "@types/node": "^22.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"

@@ -4,9 +4,9 @@ slug: sid-meier
 known_for:
   - Creator of Civilization series
   - Creator of Pirates!, Railroad Tycoon, Alpha Centauri
-  - "A game is a series of interesting decisions" — defining formulation of game design
+  - A game is a series of interesting decisions — defining formulation of game design
   - Co-founder of MicroProse, Firaxis Games
-  - Memoir "Sid Meier's Memoir!: A Life in Computer Games" (2020)
+  - Sid Meier's Memoir! A Life in Computer Games (2020)
 tags:
   - game-dev
   - product
