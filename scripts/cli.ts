@@ -106,20 +106,18 @@ function previewPersona(slug: string) {
     console.log();
   }
 
-  // Extract and print section headings with their first substantive line
+  // Extract top-level (##) section headings with their first substantive line.
+  // Intentionally only ## — sub-sections (###) are implementation detail, not preview-worthy.
   const lines = content.split("\n");
   const sections: { heading: string; firstLine: string }[] = [];
   for (let i = 0; i < lines.length; i++) {
     const match = lines[i].match(/^##\s+(.+)/);
     if (match) {
-      // Find the first non-empty content line after the heading
       let firstLine = "";
       for (let j = i + 1; j < lines.length; j++) {
         const line = lines[j].trim();
         if (line && !line.startsWith("#")) {
-          // Strip markdown formatting for display
-          firstLine = line.replace(/^\d+\.\s+/, "").replace(/\*\*/g, "").replace(/^[-•]\s+/, "");
-          if (firstLine.length > 100) firstLine = firstLine.slice(0, 97) + "...";
+          firstLine = line.length > 100 ? line.slice(0, 97) + "..." : line;
           break;
         }
       }
@@ -137,7 +135,7 @@ function previewPersona(slug: string) {
   }
 
   if (data.model) console.log(`Model: ${data.model}`);
-  if (data.tools) console.log(`Tools: ${data.tools.join(", ")}`);
+  if (Array.isArray(data.tools)) console.log(`Tools: ${data.tools.join(", ")}`);
   console.log(`\nInstall: npx cc-them install ${slug}\n`);
 }
 
