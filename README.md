@@ -60,6 +60,8 @@ npx cc-them install rich-hickey   # install to .claude/agents/
 
 Installs to `.claude/agents/{slug}.md`. Restart Claude Code to pick them up.
 
+**Using cc-them on a team?** Commit `.claude/agents/` to your repo — collaborators who clone the project get the agents automatically. Don't gitignore it.
+
 ---
 
 ## Available Profiles
