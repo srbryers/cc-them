@@ -76,10 +76,13 @@ The CLI is `scripts/cli.ts` — compiled to `scripts/cli.js` for distribution. C
 ```bash
 npx cc-them list
 npx cc-them list --tag growth
+npx cc-them preview <slug>
 npx cc-them install <slug> [slug...]
 ```
 
 The `list` command supports `--tag <tag>` to filter profiles by tag. Without a tag filter, it shows all profiles with their tags and lists available tags.
+
+The `preview` command shows a profile's description, section structure, model, and tools before installing.
 
 The `install` command copies `profiles/{slug}/agent.md` to `.claude/agents/{slug}.md` in the current working directory.
 

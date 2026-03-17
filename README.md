@@ -25,15 +25,25 @@ You can. Claude will give you something that sounds like Hickey. But it will ble
 
 cc-them profiles are researched documents — every stance traces to a specific talk, post, or design decision. The agent doesn't guess what Hickey would say. It reasons from what he actually said. The difference is the same as asking a colleague who once read a blog post vs. one who studied the primary sources.
 
+### What the difference looks like
+
+**Without cc-them** — "review this like Rich Hickey":
+> *This looks reasonable. You might consider using immutable data structures and keeping things simple. Overall the design is clean.*
+
+**With cc-them** — `rich-hickey` agent installed:
+> *Before evaluating the design, let me define terms precisely. You're using "simple" to mean "easy to write," but simplicity is an objective property — it means "not interleaved." This ORM is complecting your information model with a persistence strategy. What are the actual facts here? You have values flowing through a pipeline. Model them as values — plain maps with namespaced keys — not as mutable objects with hidden state. The database is a separate concern; don't braid it into your domain.*
+
+One is polite generics. The other applies a documented value hierarchy with specific vocabulary.
+
 ---
 
 ## Quick Start
 
 ```bash
-npx cc-them install rich-hickey
-npx cc-them install linus-torvalds john-carmack andrej-karpathy
-npx cc-them list
-npx cc-them list --tag growth
+npx cc-them list                  # see all profiles
+npx cc-them list --tag growth     # filter by tag
+npx cc-them preview rich-hickey   # see what you're getting before install
+npx cc-them install rich-hickey   # install to .claude/agents/
 ```
 
 Installs to `.claude/agents/{slug}.md`. Restart Claude Code to pick them up.
@@ -62,12 +72,22 @@ Each profile uses a reasoning mode matched to how that person actually thinks �
 | `april-dunford` | Structured | marketing, product | Positioning framework, competitive alternatives, market category |
 | `lenny-rachitsky` | Structured | growth, product | Growth loops, activation benchmarks, launch strategy |
 
+**What they'll tell you:**
+
+- **Hickey**: "You're complecting your information model with a persistence strategy. Separate what from how."
+- **Torvalds**: "Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+- **Carmack**: "Every layer of abstraction hides information you need. Measure the cost before you pay it."
+- **Dunford**: "You're leading with features. Your customer doesn't care what it does — they care what it does for them."
+- **Hormozi**: "Run it through the Value Equation. Which variable is binding — dream outcome, likelihood, time delay, or effort?"
+
 **Example usage:**
 ```
 Use rich-hickey to review this data model for unnecessary complexity.
 Use april-dunford to audit whether our landing page communicates value or features.
 Use john-carmack to evaluate whether this abstraction layer earns its cost.
 ```
+
+Preview any profile before installing: `npx cc-them preview <slug>`
 
 ---
 
