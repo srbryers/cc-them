@@ -1,6 +1,6 @@
 {
   "name": "cc-them",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Sourced reasoning agents for Claude Code — expert pushback on code, architecture, and strategy, grounded in public works",
   "type": "module",
   "bin": {
