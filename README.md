@@ -1,39 +1,88 @@
 # cc-them
 
-> Loop the greats into your Claude Code sessions.
+> Get Rich Hickey, Linus Torvalds, or John Carmack to review your code — every position sourced, none invented.
 
-An open-source library of agent profiles for notable technologists — installable as Claude Code sub-agents or queryable via MCP. Each profile is a distilled reasoning framework built entirely from public works: talks, blog posts, mailing list threads, interviews, commit messages. Not impersonation. Not roleplay. The actual thinking, made usable.
+Expert reasoning agents for Claude Code. Each profile is a researched framework built from public works — talks, posts, mailing lists, interviews — not training-data approximation. One command to install. One 4KB file. Delete it if it doesn't change how you think.
+
+For engineers and founders using Claude Code who want structured, expert pushback — not just faster autocomplete.
 
 ```bash
 npx cc-them install rich-hickey
-# → .claude/agents/rich-hickey.md
+# → .claude/agents/rich-hickey.md — ready on next Claude Code session
 ```
 
 ---
 
 ## Why
 
-You want Rich Hickey looking at your data model. You want Carmack asking if your abstraction earns its cost. You want Karpathy asking whether you've actually looked at the data before changing the architecture.
+You're about to make an architectural decision and there's no one to push back. You want Rich Hickey looking at your data model. You want Carmack asking if your abstraction earns its cost. You want Dunford auditing whether your landing page communicates value or features.
 
-These agents don't pretend to be those people. They apply their documented frameworks as a reasoning lens — every position grounded in public record, every pushback traceable to a real source.
+These agents apply documented frameworks as a reasoning lens — every position grounded in public record, every pushback traceable to a real source.
+
+### Why not just say "review this like Rich Hickey"?
+
+You can. Claude will give you something that sounds like Hickey. But it will blend in positions he never held, miss the priority order of his values, and flatten his vocabulary into generic "simplicity" advice.
+
+cc-them profiles are researched documents — every stance traces to a specific talk, post, or design decision. The agent doesn't guess what Hickey would say. It reasons from what he actually said. The difference is the same as asking a colleague who once read a blog post vs. one who studied the primary sources.
 
 ---
 
 ## Quick Start
 
-### Install a sub-agent into your project
-
 ```bash
 npx cc-them install rich-hickey
 npx cc-them install linus-torvalds john-carmack andrej-karpathy
 npx cc-them list
+npx cc-them list --tag growth
 ```
 
 Installs to `.claude/agents/{slug}.md`. Restart Claude Code to pick them up.
 
-### Run the MCP server
+---
 
-Add to your `.claude/settings.json` or `claude_desktop_config.json`:
+## Available Profiles
+
+Each profile uses a reasoning mode matched to how that person actually thinks — structured frameworks, sharp voice, context-dependent advice, or navigating tensions.
+
+### Engineering
+
+| Slug | Reasoning Mode | Tags | Known For |
+|------|---------------|------|-----------|
+| `rich-hickey` | Structured | language-design, data, philosophy | Clojure, simplicity vs. complexity, data orientation |
+| `linus-torvalds` | Voice First | systems, open-source | Linux, Git, taste in systems code |
+| `john-carmack` | Scenario | systems, game-dev | Game engines, first principles, empiricism |
+| `andrej-karpathy` | Voice First | ai, systems, philosophy | Neural nets, Software 2.0, understanding by rebuilding |
+| `sid-meier` | Dialectical | game-dev, product, philosophy | Civilization, interesting decisions, fun as design goal |
+
+### Strategy
+
+| Slug | Reasoning Mode | Tags | Known For |
+|------|---------------|------|-----------|
+| `alex-hormozi` | Structured | growth, marketing | Value Equation, Grand Slam Offers, conversion mechanics |
+| `april-dunford` | Structured | marketing, product | Positioning framework, competitive alternatives, market category |
+| `lenny-rachitsky` | Structured | growth, product | Growth loops, activation benchmarks, launch strategy |
+
+**Example usage:**
+```
+Use rich-hickey to review this data model for unnecessary complexity.
+Use april-dunford to audit whether our landing page communicates value or features.
+Use john-carmack to evaluate whether this abstraction layer earns its cost.
+```
+
+---
+
+## Principles
+
+- **Public works only.** Every claim must link to a public source.
+- **No impersonation.** Prompts frame the persona as a reasoning lens, not a character.
+- **Opinionated but grounded.** Capture real stances, not vague approximations.
+- **Community-maintained.** Anyone can submit, improve, or dispute a profile.
+
+---
+
+## MCP Server
+
+For use outside Claude Code (or alongside it). Add to your `.claude/settings.json` or `claude_desktop_config.json`:
 
 ```json
 {
@@ -55,25 +104,13 @@ Use review_john_carmack_code on this render loop.
 
 ---
 
-## Available Profiles
-
-| Slug | Name | Template | Known For |
-|------|------|----------|-----------|
-| `rich-hickey` | Rich Hickey | Structured | Clojure, simplicity vs. complexity, data orientation |
-| `linus-torvalds` | Linus Torvalds | Voice First | Linux, Git, taste in systems code |
-| `john-carmack` | John Carmack | Scenario | Game engines, first principles, empiricism |
-| `andrej-karpathy` | Andrej Karpathy | Voice First | Neural nets, Software 2.0, understanding by rebuilding |
-| `sid-meier` | Sid Meier | Dialectical | Civilization, interesting decisions, fun as design goal |
-
----
-
 ## Contributing
 
 **This library is only as good as the community that builds it.** Adding a profile is the main way to contribute — and it's designed to be approachable.
 
 ### Who's missing?
 
-Some obvious gaps: DHH, Alan Kay, Barbara Liskov, Joe Armstrong, Martin Fowler, Grace Hopper, Dan Abramov, Kent Beck. If someone shaped how you think about software and has a substantial public body of work, they probably belong here.
+Some obvious gaps: DHH, Alan Kay, Barbara Liskov, Joe Armstrong, Martin Fowler, Grace Hopper, Dan Abramov, Kent Beck. If someone shaped how you think about building things and has a substantial public body of work, they probably belong here.
 
 ### How to add a profile
 
@@ -83,19 +120,13 @@ Some obvious gaps: DHH, Alan Kay, Barbara Liskov, Joe Armstrong, Martin Fowler, 
 4. Run the validator: `node scripts/validate.js profiles/{slug}`
 5. Open a PR titled `Add profile: {Full Name}`
 
-Every PR runs the validator automatically via CI — it must pass before merging.
-
 Full contribution guide: **[CONTRIBUTING.md](./CONTRIBUTING.md)**
-
-### Want to request a profile instead?
-
-Open an issue using the [Request a persona](.github/ISSUE_TEMPLATE/request-persona.md) template. No code required — just a name and a few links to their public work.
 
 ### Other ways to help
 
-- **Fill out stub profiles** — Linus Torvalds and John Carmack have `agent.md` files but incomplete `profile.md` and `sources.md`. Great first contribution.
-- **Dispute a profile** — If something is wrong or misrepresents someone's documented positions, open an issue with a source. We'll fix it.
-- **Improve an existing profile** — Found a great talk or post that isn't in `sources.md`? Add it and update the profile to reflect it.
+- **Dispute a profile** — If something misrepresents someone's documented positions, open an issue with a source.
+- **Improve an existing profile** — Found a great talk or post that isn't in `sources.md`? Add it.
+- **Request a profile** — Open an issue with [this template](.github/ISSUE_TEMPLATE/request-persona.md). No code required.
 
 ---
 
@@ -109,28 +140,11 @@ Open an issue using the [Request a persona](.github/ISSUE_TEMPLATE/request-perso
 
 /schema/
   profile-schema.md       # Full contribution spec
-  templates/
-    a-structured.md       # Default — works for almost everyone
-    b-voice-first.md      # For figures with a very sharp, distinctive voice
-    c-scenario.md         # For figures whose advice shifts by context
-    d-dialectical.md      # For thinkers defined by tensions they navigate
+  templates/              # Four reasoning mode templates
 
-/mcp/
-  src/index.ts            # MCP server — auto-discovers all profiles
-
-/scripts/
-  validate.js             # Profile validator — runs on every PR via CI
-  cli.ts                  # npx cc-them CLI
+/mcp/src/index.ts         # MCP server — auto-discovers all profiles
+/scripts/cli.ts           # npx cc-them CLI
 ```
-
----
-
-## Principles
-
-- **Public works only.** Every claim must link to a public source.
-- **No impersonation.** Prompts frame the persona as a reasoning lens, not a character.
-- **Opinionated but grounded.** Capture real stances, not vague approximations.
-- **Community-maintained.** Anyone can submit, improve, or dispute a profile.
 
 ---
 
