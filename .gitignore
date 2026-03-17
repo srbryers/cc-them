@@ -4,7 +4,6 @@ mcp/dist/
 
 # Launch internals (private repo: srbryers/cc-them-launch)
 docs/launch/
-docs/images/
 scripts/social/
 
 # SLOPE local state (sessions, handoffs, sprint-state, DB)

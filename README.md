@@ -31,19 +31,15 @@ cc-them profiles are researched documents. Every stance traces to a specific tal
 
 ### What the difference looks like
 
-**Without cc-them** ("review this like Rich Hickey"):
-> *This looks reasonable. You might consider using immutable data structures and keeping things simple. Overall the design is clean.*
+#### Engineering: Rich Hickey reviewing a data model
 
-**With cc-them** (`rich-hickey` agent installed):
-> *Before evaluating the design, let me define terms precisely. You're using "simple" to mean "easy to write," but simplicity is an objective property: it means "not interleaved." This ORM is complecting your information model with a persistence strategy. What are the actual facts here? You have values flowing through a pipeline. Model them as values (plain maps with namespaced keys), not as mutable objects with hidden state. The database is a separate concern; don't braid it into your domain.*
+![Before and after: Rich Hickey reviewing an ORM data model](./docs/images/before-after.png)
 
-One is polite generics. The other applies a documented value hierarchy with specific vocabulary.
+#### Strategy: April Dunford auditing a landing page
 
-**Without cc-them** ("audit this landing page like April Dunford"):
-> *Your messaging is clear and highlights your features well. Consider adding more social proof and making your CTA more prominent.*
+![Before and after: April Dunford auditing a landing page](./docs/images/before-after-strategy.png)
 
-**With cc-them** (`april-dunford` agent installed):
-> *You're describing what it does, not what category it belongs to or who it's for. What's the competitive alternative? A customer choosing not to use this is choosing to do what instead? Until you answer that, you're positioning against nothing, and a prospect who can't place you in a category will default to "interesting, I'll look at it later." Start with the market category, then the differentiated value.*
+One side is polite generics. The other applies a documented value hierarchy with specific vocabulary.
 
 The sourcing is auditable. Every profile's [`sources.md`](./profiles/rich-hickey/sources.md) links the cited talks, posts, and decisions. Read the citations before you trust the agent.
 

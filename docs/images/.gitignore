@@ -1,0 +1,4 @@
+# Only track desktop before/after images (used in README)
+# Mobile and carousel images live in private repo: srbryers/cc-them-launch
+carousel-*
+mobile-*
