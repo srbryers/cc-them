@@ -1,8 +1,10 @@
 # cc-them
 
-> Sourced reasoning agents for Claude Code.
+> Get Rich Hickey, Linus Torvalds, or John Carmack to review your code — every position sourced, none invented.
 
-Install a sub-agent that applies Rich Hickey's design philosophy, Linus Torvalds' systems taste, or April Dunford's positioning methodology to your actual codebase — every position grounded in public works, not hallucination.
+Expert reasoning agents for Claude Code. Each profile is a researched framework built from public works — talks, posts, mailing lists, interviews — not training-data approximation. One command to install. One 4KB file. Delete it if it doesn't change how you think.
+
+For engineers and founders using Claude Code who want structured, expert pushback — not just faster autocomplete.
 
 ```bash
 npx cc-them install rich-hickey
@@ -13,9 +15,9 @@ npx cc-them install rich-hickey
 
 ## Why
 
-You want Rich Hickey looking at your data model. You want Carmack asking if your abstraction earns its cost. You want Dunford auditing whether your landing page communicates value or features. You want Karpathy asking whether you've actually looked at the data before changing the architecture.
+You're about to make an architectural decision and there's no one to push back. You want Rich Hickey looking at your data model. You want Carmack asking if your abstraction earns its cost. You want Dunford auditing whether your landing page communicates value or features.
 
-These agents don't pretend to be those people. They apply their documented frameworks as a reasoning lens — every position grounded in public record, every pushback traceable to a real source.
+These agents apply documented frameworks as a reasoning lens — every position grounded in public record, every pushback traceable to a real source.
 
 ### Why not just say "review this like Rich Hickey"?
 
@@ -36,16 +38,16 @@ npx cc-them list --tag growth
 
 Installs to `.claude/agents/{slug}.md`. Restart Claude Code to pick them up.
 
-One command. One 4KB file. Delete it if it doesn't change how you think.
-
 ---
 
 ## Available Profiles
 
+Each profile uses a reasoning mode matched to how that person actually thinks — structured frameworks, sharp voice, context-dependent advice, or navigating tensions.
+
 ### Engineering
 
-| Slug | Template | Tags | Known For |
-|------|----------|------|-----------|
+| Slug | Reasoning Mode | Tags | Known For |
+|------|---------------|------|-----------|
 | `rich-hickey` | Structured | language-design, data, philosophy | Clojure, simplicity vs. complexity, data orientation |
 | `linus-torvalds` | Voice First | systems, open-source | Linux, Git, taste in systems code |
 | `john-carmack` | Scenario | systems, game-dev | Game engines, first principles, empiricism |
@@ -54,11 +56,18 @@ One command. One 4KB file. Delete it if it doesn't change how you think.
 
 ### Strategy
 
-| Slug | Template | Tags | Known For |
-|------|----------|------|-----------|
+| Slug | Reasoning Mode | Tags | Known For |
+|------|---------------|------|-----------|
 | `alex-hormozi` | Structured | growth, marketing | Value Equation, Grand Slam Offers, conversion mechanics |
 | `april-dunford` | Structured | marketing, product | Positioning framework, competitive alternatives, market category |
 | `lenny-rachitsky` | Structured | growth, product | Growth loops, activation benchmarks, launch strategy |
+
+**Example usage:**
+```
+Use rich-hickey to review this data model for unnecessary complexity.
+Use april-dunford to audit whether our landing page communicates value or features.
+Use john-carmack to evaluate whether this abstraction layer earns its cost.
+```
 
 ---
 
@@ -111,18 +120,13 @@ Some obvious gaps: DHH, Alan Kay, Barbara Liskov, Joe Armstrong, Martin Fowler, 
 4. Run the validator: `node scripts/validate.js profiles/{slug}`
 5. Open a PR titled `Add profile: {Full Name}`
 
-Every PR runs the validator automatically via CI — it must pass before merging.
-
 Full contribution guide: **[CONTRIBUTING.md](./CONTRIBUTING.md)**
-
-### Want to request a profile instead?
-
-Open an issue using the [Request a persona](.github/ISSUE_TEMPLATE/request-persona.md) template. No code required — just a name and a few links to their public work.
 
 ### Other ways to help
 
-- **Dispute a profile** — If something is wrong or misrepresents someone's documented positions, open an issue with a source. We'll fix it.
-- **Improve an existing profile** — Found a great talk or post that isn't in `sources.md`? Add it and update the profile to reflect it.
+- **Dispute a profile** — If something misrepresents someone's documented positions, open an issue with a source.
+- **Improve an existing profile** — Found a great talk or post that isn't in `sources.md`? Add it.
+- **Request a profile** — Open an issue with [this template](.github/ISSUE_TEMPLATE/request-persona.md). No code required.
 
 ---
 
@@ -136,18 +140,10 @@ Open an issue using the [Request a persona](.github/ISSUE_TEMPLATE/request-perso
 
 /schema/
   profile-schema.md       # Full contribution spec
-  templates/
-    a-structured.md       # Default — works for almost everyone
-    b-voice-first.md      # For figures with a very sharp, distinctive voice
-    c-scenario.md         # For figures whose advice shifts by context
-    d-dialectical.md      # For thinkers defined by tensions they navigate
+  templates/              # Four reasoning mode templates
 
-/mcp/
-  src/index.ts            # MCP server — auto-discovers all profiles
-
-/scripts/
-  validate.js             # Profile validator — runs on every PR via CI
-  cli.ts                  # npx cc-them CLI
+/mcp/src/index.ts         # MCP server — auto-discovers all profiles
+/scripts/cli.ts           # npx cc-them CLI
 ```
 
 ---

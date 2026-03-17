@@ -28,9 +28,11 @@
   "keywords": [
     "claude",
     "claude-code",
+    "code-review",
     "mcp",
     "ai-agents",
-    "sub-agents"
+    "reasoning",
+    "architecture"
   ],
   "files": [
     "dist/",
