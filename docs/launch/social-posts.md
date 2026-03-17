@@ -7,21 +7,21 @@ I built an open-source library of expert reasoning agents for Claude Code.
 
 Rich Hickey reviewing your data model. Linus Torvalds on your systems code. April Dunford auditing your positioning.
 
-Every stance sourced from public works — not training-data approximation.
+Every stance sourced from public works, not training-data approximation.
 
 `npx cc-them install rich-hickey`
 
 ### Tweet 2 (Differentiation)
 The problem with "review this like Rich Hickey": Claude gives you plausible generics.
 
-cc-them profiles are researched documents. Every stance traces to a specific talk, post, or design decision. The agent reasons from what they actually said — not what sounds right.
+cc-them profiles are researched documents. Every stance traces to a specific talk, post, or design decision. The agent reasons from what they actually said, not what sounds right.
 
 ### Tweet 3 (How it works + proof)
 One command, one 4KB file. Delete it if it doesn't change how you think:
 
 `npx cc-them install rich-hickey`
 
-Also works as an MCP server for Claude Desktop. 8 profiles today — engineering (Hickey, Torvalds, Carmack, Karpathy, Meier) and strategy (Hormozi, Dunford, Rachitsky).
+Also works as an MCP server for Claude Desktop. 8 profiles today across engineering (Hickey, Torvalds, Carmack, Karpathy, Meier) and strategy (Hormozi, Dunford, Rachitsky).
 
 [Attach: screenshot of before/after comparison from README]
 
@@ -37,10 +37,10 @@ https://github.com/srbryers/cc-them
 ## Reddit r/programming
 
 ### Title
-cc-them: Open-source library of sourced reasoning agents — get Rich Hickey, Torvalds, or Carmack to review your code in Claude Code
+cc-them: Open-source library of sourced reasoning agents for Claude Code (Rich Hickey, Torvalds, Carmack, and more)
 
 ### Body
-I've been building sourced reasoning agents for Claude Code — expert profiles where every position traces to a public talk, commit, or blog post.
+I've been building sourced reasoning agents for Claude Code. Each profile is a researched document where every position traces to a public talk, commit, or blog post.
 
 The problem: telling an LLM "review this like Rich Hickey" gives you plausible generics. It blends in positions he never held, misses the priority order of his values, and flattens his vocabulary.
 
@@ -56,7 +56,7 @@ npx cc-them install rich-hickey   # install to .claude/agents/
 
 Also works as an MCP server for any Claude client.
 
-8 profiles ship today — 5 engineering (Hickey, Torvalds, Carmack, Karpathy, Sid Meier) and 3 strategy (Hormozi, Dunford, Rachitsky). It's community-maintained — anyone can add a profile by researching the public record and running the validator.
+8 profiles ship today: 5 engineering (Hickey, Torvalds, Carmack, Karpathy, Sid Meier) and 3 strategy (Hormozi, Dunford, Rachitsky). It's community-maintained, and anyone can add a profile by researching the public record and running the validator.
 
 **Who's missing?** DHH, Alan Kay, Barbara Liskov, Joe Armstrong, Martin Fowler? If someone shaped how you think about building things, open a profile request issue.
 
@@ -67,12 +67,12 @@ GitHub: https://github.com/srbryers/cc-them
 ## Reddit r/ClaudeAI
 
 ### Title
-I built sourced reasoning agents for Claude Code — Rich Hickey, Torvalds, Carmack, and 5 others as installable sub-agents
+I built sourced reasoning agents for Claude Code: Rich Hickey, Torvalds, Carmack, and 5 others as installable sub-agents
 
 ### Body
 One thing I've found limiting about Claude Code: when you ask it to "think like X," it gives you a surface-level impression. It sounds right but flattens nuance, misses priority order, and invents positions.
 
-I built cc-them — an open-source library of expert reasoning agents where every stance is sourced from public works (talks, commits, blog posts). One command installs a 4KB markdown agent into `.claude/agents/`.
+I built cc-them, an open-source library of expert reasoning agents where every stance is sourced from public works (talks, commits, blog posts). One command installs a 4KB markdown agent into `.claude/agents/`.
 
 ```
 npx cc-them install rich-hickey
