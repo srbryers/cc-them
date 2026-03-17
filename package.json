@@ -1,6 +1,6 @@
 {
   "name": "cc-them",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Sourced reasoning agents for Claude Code — expert pushback on code, architecture, and strategy, grounded in public works",
   "type": "module",
   "bin": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@slope-dev/slope": "^1.33.0",
     "@types/node": "^22.0.0",
+    "puppeteer": "^24.39.1",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"
   },
