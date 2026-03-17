@@ -87,6 +87,60 @@ function listPersonas(tagFilter?: string) {
   console.log(`\nInstall with: npx cc-them install <slug>\n`);
 }
 
+function previewPersona(slug: string) {
+  const agentPath = join(PROFILES_DIR, slug, "agent.md");
+
+  if (!existsSync(agentPath)) {
+    console.error(`✗ No profile found for "${slug}". Run \`npx cc-them list\` to see available personas.`);
+    process.exit(1);
+  }
+
+  const raw = readFileSync(agentPath, "utf-8");
+  const { data, content } = matter(raw);
+
+  console.log(`\n━━━ ${data.name || slug} ━━━\n`);
+
+  if (data.description) {
+    const desc = typeof data.description === "string" ? data.description.trim() : "";
+    console.log(desc);
+    console.log();
+  }
+
+  // Extract and print section headings with their first substantive line
+  const lines = content.split("\n");
+  const sections: { heading: string; firstLine: string }[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const match = lines[i].match(/^##\s+(.+)/);
+    if (match) {
+      // Find the first non-empty content line after the heading
+      let firstLine = "";
+      for (let j = i + 1; j < lines.length; j++) {
+        const line = lines[j].trim();
+        if (line && !line.startsWith("#")) {
+          // Strip markdown formatting for display
+          firstLine = line.replace(/^\d+\.\s+/, "").replace(/\*\*/g, "").replace(/^[-•]\s+/, "");
+          if (firstLine.length > 100) firstLine = firstLine.slice(0, 97) + "...";
+          break;
+        }
+      }
+      sections.push({ heading: match[1], firstLine });
+    }
+  }
+
+  if (sections.length > 0) {
+    console.log("Sections:");
+    sections.forEach((s) => {
+      console.log(`  ## ${s.heading}`);
+      if (s.firstLine) console.log(`     ${s.firstLine}`);
+    });
+    console.log();
+  }
+
+  if (data.model) console.log(`Model: ${data.model}`);
+  if (data.tools) console.log(`Tools: ${data.tools.join(", ")}`);
+  console.log(`\nInstall: npx cc-them install ${slug}\n`);
+}
+
 function installPersona(slug: string) {
   const agentSrc = join(PROFILES_DIR, slug, "agent.md");
 
@@ -133,6 +187,14 @@ switch (command) {
     listPersonas(tagFilter);
     break;
 
+  case "preview":
+    if (rest.length === 0) {
+      console.error("Usage: npx cc-them preview <slug>");
+      process.exit(1);
+    }
+    previewPersona(rest[0]);
+    break;
+
   case "install":
     if (rest.length === 0) {
       console.error("Usage: npx cc-them install <slug> [slug...]");
@@ -144,16 +206,18 @@ switch (command) {
 
   default:
     console.log(`
-cc-them — install reasoning agents into Claude Code
+cc-them — sourced reasoning agents for Claude Code
 
 Commands:
-  list [--tag <tag>]       List available personas (optionally filter by tag)
+  list [--tag <tag>]        List available personas (optionally filter by tag)
+  preview <slug>            Preview a profile before installing
   install <slug> [slug...]  Install agent(s) into .claude/agents/
 
 Examples:
   npx cc-them list
   npx cc-them list --tag growth
+  npx cc-them preview rich-hickey
   npx cc-them install rich-hickey
-  npx cc-them install linus-torvalds rich-hickey john-carmack
+  npx cc-them install linus-torvalds john-carmack andrej-karpathy
 `);
 }
