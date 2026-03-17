@@ -1,0 +1,262 @@
+{
+  "name": "cc-them Growth Sprint",
+  "description": "Synthesized from positioning audit (Dunford), launch review (Rachitsky), and offer audit (Hormozi). Prioritized by convergence across all three frameworks.",
+  "phases": [
+    {
+      "name": "Credibility & Activation",
+      "sprints": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "Launch",
+      "sprints": [
+        5,
+        6
+      ]
+    },
+    {
+      "name": "Growth Loop",
+      "sprints": [
+        7,
+        8
+      ]
+    }
+  ],
+  "sprints": [
+    {
+      "id": 2,
+      "theme": "Complete Stub Profiles",
+      "par": 4,
+      "slope": 1,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S2-1",
+          "title": "Complete linus-torvalds profile.md — research public talks, LKML posts, interviews",
+          "club": "long_iron",
+          "complexity": "moderate"
+        },
+        {
+          "key": "S2-2",
+          "title": "Complete linus-torvalds sources.md — minimum 10 cited sources",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S2-3",
+          "title": "Complete john-carmack profile.md — research .plan files, QuakeCon talks, podcasts",
+          "club": "long_iron",
+          "complexity": "moderate"
+        },
+        {
+          "key": "S2-4",
+          "title": "Complete john-carmack sources.md — minimum 10 cited sources",
+          "club": "short_iron",
+          "complexity": "standard"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "theme": "README & Positioning Overhaul",
+      "par": 5,
+      "slope": 1,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S3-1",
+          "title": "Rewrite README opening — category declaration, outcome-led tagline",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S3-2",
+          "title": "Add 'Why not just ask Claude?' section",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S3-3",
+          "title": "Restructure README — user journey first, contributor journey second",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S3-4",
+          "title": "Rewrite npm package description — outcome-led",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S3-5",
+          "title": "Segment profile table by domain or unify under broader frame",
+          "club": "wedge",
+          "complexity": "small"
+        }
+      ],
+      "depends_on": [
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "theme": "Show the Output Quality",
+      "par": 4,
+      "slope": 1,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S4-1",
+          "title": "Add 'npx cc-them preview <slug>' command",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S4-2",
+          "title": "Create before/after example in README — default review vs agent review",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S4-3",
+          "title": "Add risk reversal copy — 'one command, one 4KB file, delete if not useful'",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S4-4",
+          "title": "Surface strongest profile lines in README as quality proof",
+          "club": "wedge",
+          "complexity": "small"
+        }
+      ],
+      "depends_on": [
+        2
+      ]
+    },
+    {
+      "id": 5,
+      "theme": "Launch Assets",
+      "par": 3,
+      "slope": 0,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S5-1",
+          "title": "Record 30-second screen demo — install, review, show response",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S5-2",
+          "title": "Write Show HN post draft",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S5-3",
+          "title": "Add npm download + GitHub stars badges to README",
+          "club": "putter",
+          "complexity": "trivial"
+        }
+      ],
+      "depends_on": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "theme": "Launch Execution",
+      "par": 3,
+      "slope": 1,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S6-1",
+          "title": "Post Show HN — publish and respond for 24 hours",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S6-2",
+          "title": "Cross-post to Twitter/X, Reddit, Claude Code community",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S6-3",
+          "title": "Reach out to 5 devs to seed first external profile contributions",
+          "club": "short_iron",
+          "complexity": "standard"
+        }
+      ],
+      "depends_on": [
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "theme": "Contribution Loop",
+      "par": 3,
+      "slope": 1,
+      "type": "infra",
+      "tickets": [
+        {
+          "key": "S7-1",
+          "title": "GitHub Action — auto-announce when new profile PR is merged",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S7-2",
+          "title": "Move repo to GitHub org for community credibility",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S7-3",
+          "title": "Add 'npx cc-them update' command for profile versioning",
+          "club": "short_iron",
+          "complexity": "standard"
+        }
+      ],
+      "depends_on": [
+        6
+      ]
+    },
+    {
+      "id": 8,
+      "theme": "Activation & Retention",
+      "par": 3,
+      "slope": 1,
+      "type": "feature",
+      "tickets": [
+        {
+          "key": "S8-1",
+          "title": "Investigate Claude Code hot-reload for new agents",
+          "club": "short_iron",
+          "complexity": "standard"
+        },
+        {
+          "key": "S8-2",
+          "title": "Add post-install usage instructions to CLI output",
+          "club": "wedge",
+          "complexity": "small"
+        },
+        {
+          "key": "S8-3",
+          "title": "Separate CLI (simple) and MCP (advanced) paths in docs",
+          "club": "wedge",
+          "complexity": "small"
+        }
+      ],
+      "depends_on": [
+        6
+      ]
+    }
+  ]
+}

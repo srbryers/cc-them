@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "slope": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-slope-tools"
+      ]
+    }
+  }
+}
