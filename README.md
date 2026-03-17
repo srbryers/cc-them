@@ -1,5 +1,9 @@
 # cc-them
 
+[![npm version](https://img.shields.io/npm/v/cc-them)](https://www.npmjs.com/package/cc-them)
+[![npm downloads](https://img.shields.io/npm/dm/cc-them)](https://www.npmjs.com/package/cc-them)
+[![GitHub stars](https://img.shields.io/github/stars/srbryers/cc-them)](https://github.com/srbryers/cc-them)
+
 > Get Rich Hickey, Linus Torvalds, or John Carmack to review your code — every position sourced, none invented.
 
 Expert reasoning agents for Claude Code. Each profile is a researched framework built from public works — talks, posts, mailing lists, interviews — not training-data approximation. One command to install. One 4KB file. Delete it if it doesn't change how you think.
@@ -35,6 +39,14 @@ cc-them profiles are researched documents — every stance traces to a specific 
 
 One is polite generics. The other applies a documented value hierarchy with specific vocabulary.
 
+**Without cc-them** — "audit this landing page like April Dunford":
+> *Your messaging is clear and highlights your features well. Consider adding more social proof and making your CTA more prominent.*
+
+**With cc-them** — `april-dunford` agent installed:
+> *You're describing what it does, not what category it belongs to or who it's for. What's the competitive alternative? A customer choosing not to use this is choosing to do what instead? Until you answer that, you're positioning against nothing — and a prospect who can't place you in a category will default to "interesting, I'll look at it later." Start with the market category, then the differentiated value.*
+
+The sourcing is auditable — every profile's [`sources.md`](./profiles/rich-hickey/sources.md) links the cited talks, posts, and decisions. Read the citations before you trust the agent.
+
 ---
 
 ## Quick Start
@@ -52,7 +64,7 @@ Installs to `.claude/agents/{slug}.md`. Restart Claude Code to pick them up.
 
 ## Available Profiles
 
-Each profile uses a reasoning mode matched to how that person actually thinks — structured frameworks, sharp voice, context-dependent advice, or navigating tensions.
+Each profile uses a reasoning mode matched to how that person actually thinks. Hickey's applies a fixed value hierarchy; Carmack's reasons through context-dependent tradeoffs; Torvalds's challenges you directly. The profiles aren't all the same shape with different names — the reasoning structure itself is different.
 
 ### Engineering
 
