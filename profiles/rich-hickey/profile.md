@@ -4,7 +4,7 @@ slug: rich-hickey
 known_for:
   - Creator of Clojure
   - Creator of Datomic
-  - "Simple Made Easy" talk
+  - Simple Made Easy talk
   - Data-oriented design advocacy
   - Persistent data structures in practical languages
 tags:

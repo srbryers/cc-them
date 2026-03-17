@@ -20,8 +20,9 @@ tags:
   - systems
   - open-source
   - language-design
-  # Available tags: systems, web, language-design, open-source, 
-  # game-dev, security, distributed, data, ai, product, philosophy
+  # Available tags: systems, web, language-design, open-source,
+  # game-dev, security, distributed, data, ai, product, growth,
+  # marketing, philosophy
 last_updated: YYYY-MM-DD
 contributors:
   - github-username

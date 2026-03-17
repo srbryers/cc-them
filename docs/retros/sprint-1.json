@@ -1,0 +1,61 @@
+{
+  "sprint_number": 1,
+  "theme": "Example Sprint",
+  "par": 3,
+  "slope": 0,
+  "score": 3,
+  "score_label": "par",
+  "date": "2026-03-17",
+  "shots": [
+    {
+      "ticket_key": "S1-1",
+      "title": "Set up project",
+      "club": "short_iron",
+      "result": "green",
+      "hazards": [],
+      "notes": "Clean setup"
+    },
+    {
+      "ticket_key": "S1-2",
+      "title": "Add core feature",
+      "club": "short_iron",
+      "result": "in_the_hole",
+      "hazards": []
+    },
+    {
+      "ticket_key": "S1-3",
+      "title": "Write tests",
+      "club": "wedge",
+      "result": "green",
+      "hazards": [
+        {
+          "type": "rough",
+          "description": "Flaky test environment"
+        }
+      ]
+    }
+  ],
+  "conditions": [],
+  "special_plays": [],
+  "stats": {
+    "fairways_hit": 3,
+    "fairways_total": 3,
+    "greens_in_regulation": 3,
+    "greens_total": 3,
+    "putts": 0,
+    "penalties": 0,
+    "hazards_hit": 1,
+    "hazard_penalties": 0,
+    "miss_directions": {
+      "long": 0,
+      "short": 0,
+      "left": 0,
+      "right": 0
+    }
+  },
+  "yardage_book_updates": [],
+  "bunker_locations": [],
+  "course_management_notes": [
+    "This is an example scorecard — replace with your own sprint data."
+  ]
+}

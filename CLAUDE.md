@@ -1,6 +1,6 @@
 # cc-them
 
-An open-source library of agent profiles for notable technologists, installable as Claude Code sub-agents or queryable via MCP. Every profile is built from public works only — no impersonation, no invented positions.
+An open-source library of sourced reasoning agents for notable practitioners — engineers, growth strategists, product thinkers — installable as Claude Code sub-agents or queryable via MCP. Every profile is built from public works only — no impersonation, no invented positions.
 
 ## What this repo contains
 
@@ -75,8 +75,11 @@ The CLI is `scripts/cli.ts` — compiled to `scripts/cli.js` for distribution. C
 
 ```bash
 npx cc-them list
+npx cc-them list --tag growth
 npx cc-them install <slug> [slug...]
 ```
+
+The `list` command supports `--tag <tag>` to filter profiles by tag. Without a tag filter, it shows all profiles with their tags and lists available tags.
 
 The `install` command copies `profiles/{slug}/agent.md` to `.claude/agents/{slug}.md` in the current working directory.
 
@@ -89,17 +92,36 @@ The `install` command copies `profiles/{slug}/agent.md` to `.claude/agents/{slug
 
 Slugs with hyphens become underscores in tool names (`rich-hickey` → `ask_rich_hickey`).
 
+## Tags
+
+Profiles are tagged for filtering via `npx cc-them list --tag <tag>`. Available tags:
+
+`systems` · `web` · `language-design` · `open-source` · `game-dev` · `security` · `distributed` · `data` · `ai` · `product` · `growth` · `marketing` · `philosophy`
+
+Tags are defined in `profile.md` frontmatter. Each profile should have 2-3 tags from this list.
+
 ## Current profiles
 
-| Slug | Template | Status |
-|------|----------|--------|
-| `rich-hickey` | structured | Complete |
-| `linus-torvalds` | voice-first | agent.md complete; profile.md stub |
-| `john-carmack` | scenario | agent.md complete; profile.md stub |
-| `andrej-karpathy` | voice-first | Complete |
-| `sid-meier` | dialectical | Complete |
+| Slug | Template | Tags | Status |
+|------|----------|------|--------|
+| `alex-hormozi` | structured | growth, marketing | Complete |
+| `andrej-karpathy` | voice-first | ai, systems, philosophy | Complete |
+| `april-dunford` | structured | marketing, product | Complete |
+| `john-carmack` | scenario | systems, game-dev | Complete |
+| `lenny-rachitsky` | structured | growth, product | Complete |
+| `linus-torvalds` | voice-first | systems, open-source | Complete |
+| `rich-hickey` | structured | language-design, data, distributed, philosophy | Complete |
+| `sid-meier` | dialectical | game-dev, product, philosophy | Complete |
 
 Stub profiles need their `profile.md` and `sources.md` filled in. This is a good first contribution.
+
+## Growth agents
+
+`.claude/agents/` contains workflow agents for growing the repo. These are not persona profiles — they apply the growth/marketing profiles' frameworks to the repo itself:
+
+- **`positioning.md`** — Audits the project's positioning using April Dunford's five-component framework
+- **`launch-review.md`** — Evaluates growth strategy and launch readiness using Lenny Rachitsky's frameworks
+- **`offer-audit.md`** — Audits the project's "offer" using Hormozi's Value Equation (adapted for open-source where price = time/effort)
 
 ## Good candidates for new profiles
 
