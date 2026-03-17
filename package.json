@@ -1,6 +1,6 @@
 {
   "name": "cc-them",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Code review through the lens of Hickey, Torvalds, Carmack — sourced reasoning agents for Claude Code",
   "type": "module",
   "bin": {
