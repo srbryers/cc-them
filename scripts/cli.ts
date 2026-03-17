@@ -18,7 +18,6 @@ interface ProfileMeta {
   slug: string;
   name: string;
   tags: string[];
-  template: string;
 }
 
 function getProfileMeta(slug: string): ProfileMeta | null {
@@ -39,15 +38,7 @@ function getProfileMeta(slug: string): ProfileMeta | null {
     }
   }
 
-  let template = "structured";
-  try {
-    const { data } = matter(readFileSync(agentPath, "utf-8"));
-    template = data.template || "structured";
-  } catch {
-    // fall through with default
-  }
-
-  return { slug, name, tags, template };
+  return { slug, name, tags };
 }
 
 function getAllProfiles(): ProfileMeta[] {
@@ -58,13 +49,20 @@ function getAllProfiles(): ProfileMeta[] {
     .sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
+function getTagsFromProfiles(profiles: ProfileMeta[]): string[] {
+  const tags = new Set<string>();
+  profiles.forEach((p) => p.tags.forEach((t) => tags.add(t)));
+  return [...tags].sort();
+}
+
 function listPersonas(tagFilter?: string) {
-  let profiles = getAllProfiles();
+  const allProfiles = getAllProfiles();
+  let profiles = allProfiles;
 
   if (tagFilter) {
-    profiles = profiles.filter((p) => p.tags.includes(tagFilter));
+    profiles = allProfiles.filter((p) => p.tags.includes(tagFilter));
     if (profiles.length === 0) {
-      const allTags = getAllTags();
+      const allTags = getTagsFromProfiles(allProfiles);
       console.error(`\nNo profiles found with tag "${tagFilter}".`);
       console.error(`Available tags: ${allTags.join(", ")}\n`);
       process.exit(1);
@@ -81,18 +79,12 @@ function listPersonas(tagFilter?: string) {
   });
 
   if (!tagFilter) {
-    const allTags = getAllTags();
+    const allTags = getTagsFromProfiles(allProfiles);
     console.log(`\nFilter by tag: npx cc-them list --tag <tag>`);
     console.log(`Tags: ${allTags.join(", ")}`);
   }
 
   console.log(`\nInstall with: npx cc-them install <slug>\n`);
-}
-
-function getAllTags(): string[] {
-  const tags = new Set<string>();
-  getAllProfiles().forEach((p) => p.tags.forEach((t) => tags.add(t)));
-  return [...tags].sort();
 }
 
 function installPersona(slug: string) {
@@ -113,19 +105,28 @@ function installPersona(slug: string) {
   console.log(`✓ Installed ${slug} → .claude/agents/${slug}.md`);
 }
 
-// Parse args
-const args = process.argv.slice(2);
-const command = args[0];
+// Parse args: extract flags first, then positional command + rest
+function parseArgs(argv: string[]): { command?: string; rest: string[]; tagFilter?: string } {
+  const positional: string[] = [];
+  let tagFilter: string | undefined;
 
-// Extract --tag flag
-let tagFilter: string | undefined;
-const tagIdx = args.indexOf("--tag");
-if (tagIdx !== -1) {
-  tagFilter = args[tagIdx + 1];
-  args.splice(tagIdx, 2);
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === "--tag") {
+      if (i + 1 >= argv.length) {
+        console.error("Error: --tag requires a value. Usage: npx cc-them list --tag <tag>");
+        process.exit(1);
+      }
+      tagFilter = argv[i + 1];
+      i++; // skip the value
+    } else {
+      positional.push(argv[i]);
+    }
+  }
+
+  return { command: positional[0], rest: positional.slice(1), tagFilter };
 }
 
-const remaining = args.slice(1);
+const { command, rest, tagFilter } = parseArgs(process.argv.slice(2));
 
 switch (command) {
   case "list":
@@ -133,11 +134,11 @@ switch (command) {
     break;
 
   case "install":
-    if (remaining.length === 0) {
+    if (rest.length === 0) {
       console.error("Usage: npx cc-them install <slug> [slug...]");
       process.exit(1);
     }
-    remaining.forEach(installPersona);
+    rest.forEach(installPersona);
     console.log("\nDone. Restart Claude Code to pick up new agents.\n");
     break;
 

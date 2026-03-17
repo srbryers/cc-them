@@ -1,6 +1,6 @@
 # cc-them
 
-An open-source library of agent profiles for notable technologists, installable as Claude Code sub-agents or queryable via MCP. Every profile is built from public works only — no impersonation, no invented positions.
+An open-source library of sourced reasoning agents for notable practitioners — engineers, growth strategists, product thinkers — installable as Claude Code sub-agents or queryable via MCP. Every profile is built from public works only — no impersonation, no invented positions.
 
 ## What this repo contains
 
