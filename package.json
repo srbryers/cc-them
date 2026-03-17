@@ -1,7 +1,7 @@
 {
   "name": "cc-them",
   "version": "0.1.2",
-  "description": "Install tech thinker reasoning agents into Claude Code",
+  "description": "Code review through the lens of Hickey, Torvalds, Carmack — sourced reasoning agents for Claude Code",
   "type": "module",
   "bin": {
     "cc-them": "./dist/scripts/cli.js"
